@@ -1,0 +1,50 @@
+# Python / Virtual Environment
+backend/.venv/
+backend/.pytest_cache/
+backend/__pycache__/
+backend/uploads/*
+!backend/uploads/.gitkeep
+backend/dataviz.db
+backend/dataviz.db-journal
+backend/dataviz.db-shm
+backend/dataviz.db-wal
+.venv/
+__pycache__/
+
+# Node.js
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/npm-debug.log*
+node_modules/
+dist/
+
+# Environment configurations and secrets
+.env
+.env.local
+.env.*.local
+backend/.env
+backend/.env.local
+
+# Databases & local uploads at root level
+dataviz.db
+dataviz.db-journal
+dataviz.db-shm
+dataviz.db-wal
+uploads/
+*.db
+
+# Logs
+*.log
+logs/
+
+# IDE / Editors and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

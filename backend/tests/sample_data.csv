@@ -1,0 +1,11 @@
+user_id,name,sales,active,created_at,country
+1,Alice,150.5,yes,2026-07-01,USA
+2,Bob,240.0,no,2026-07-02,Canada
+3,Charlie,89.9,yes,2026-07-03,UK
+4,David,550.25,yes,2026-07-04,India
+5,Eva,120.0,no,2026-07-05,Germany
+6,Frank,310.4,yes,2026-07-06,France
+7,Grace,95.0,no,2026-07-07,Japan
+8,Henry,420.75,yes,2026-07-08,Australia
+9,Ivy,180.2,no,2026-07-09,Brazil
+10,Jack,300.0,yes,2026-07-10,South Africa
