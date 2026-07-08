@@ -1,8 +1,8 @@
 # DataViz AI Platform 📊🤖
 
-DataViz AI is a premium automated data analysis and visualization platform. It allows users to upload datasets (CSV, Excel), view instant data quality profiling metrics, interact with a smart custom chart builder, get AI-assisted recommendations, and ask natural language questions to generate instant chart visualizations and factual summaries.
+DataViz AI is a full-stack automated data analysis and visualization platform that transforms CSV and Excel datasets into interactive analytical workspaces. Users can upload datasets, inspect schema and data-quality metrics, build custom visualizations, ask natural-language analytical questions, and pin useful charts to persistent dashboards.
 
-Designed as an end-to-end recruiter showcase and technical portfolio item, this repository exhibits solid architectural patterns, strict ownership boundary isolations, robust query compilation validations, and high-performance interactive widgets.
+The platform combines a React-based analytical interface with a FastAPI backend, Pandas-powered profiling and aggregation, secure dataset ownership controls, and deterministic natural-language query interpretation.
 
 ---
 
