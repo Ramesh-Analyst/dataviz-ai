@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { uploadDataset } from '../services/api';
 import { 
-  Upload, FileSpreadsheet, AlertCircle, ArrowLeft, 
+  Upload, FileSpreadsheet, AlertCircle, ArrowLeft, ArrowRight,
   Database, Rows, Columns, FileText, CheckCircle2 
 } from 'lucide-react';
 
@@ -219,12 +219,19 @@ const UploadPage = () => {
                 <p className="text-xs text-slate-500 mt-1">Uploaded on {new Date(datasetData.metadata.created_at).toLocaleString()}</p>
               </div>
 
-              <div className="flex gap-4">
+              <div className="flex items-center gap-3">
                 <button 
                   onClick={() => setDatasetData(null)}
-                  className="px-4 py-2 bg-slate-900 border border-slate-800 hover:border-slate-700 rounded-xl text-xs font-semibold text-slate-300 transition cursor-pointer"
+                  className="px-4 py-2 bg-slate-900 border border-slate-850 hover:bg-slate-900 hover:border-slate-800 text-slate-300 rounded-xl text-xs font-semibold border transition cursor-pointer"
                 >
                   Upload Another File
+                </button>
+                <button 
+                  onClick={() => navigate(`/datasets/${datasetData.metadata.id}/overview`)}
+                  className="px-5 py-2.5 bg-brand-600 hover:bg-brand-500 text-white rounded-xl text-xs font-semibold shadow-lg shadow-brand-500/10 transition cursor-pointer flex items-center gap-1.5"
+                >
+                  <span>Continue to Analysis Workspace</span>
+                  <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
             </div>

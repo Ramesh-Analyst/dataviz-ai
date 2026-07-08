@@ -31,7 +31,7 @@ dataviz.db
 dataviz.db-journal
 dataviz.db-shm
 dataviz.db-wal
-uploads/
+/uploads/
 *.db
 
 # Logs

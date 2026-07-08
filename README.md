@@ -123,10 +123,74 @@ $env:PYTHONPATH=".."; .venv\Scripts\pytest
 * **Granular Owner Verification**: Endpoints explicitly evaluate `models.Dataset.user_id == current_user.id` to prevent cross-tenant dataset reads, dashboard modifications, or widget queries.
 * **Aesthetic Quality Bounds**: Data quality progress bar widths dynamically compute against individual metric ceilings (not hardcoded sizes), aligning frontend UI values with backend engines.
 * **Incomplete State Protection**: The frontend chart builder validates configuration models locally prior to calling query APIs, resetting mismatched options on chart type switches, ensuring no query compiler errors appear for normal incomplete choices.
+---
+
+## 📷 Screenshots & Application Flow
+
+Follow the end-to-end user journey and interface flow of the DataViz AI platform:
+
+### 1. Landing / Home Page
+![Landing Page](docs/screenshots/landing-page.png)
+*The public landing page of the application introducing the platform's automated capabilities and directing users to start uploading their datasets.*
+
+### 2. Login Page
+![Login Portal](docs/screenshots/login-page.png)
+*The secure authentication screen enabling registered users to access their personal workspaces and past datasets.*
+
+### 3. Dataset Upload Page
+#### User Workspace Dashboard
+![Workspace Dashboard](docs/screenshots/home.png)
+*The post-login workspace dashboard listing recent datasets with features to search, delete, or ingest new files.*
+
+#### Drag-and-Drop Ingestion Portal
+![Ingestion Workspace](docs/screenshots/upload-page.png)
+*The dedicated file ingestion interface supporting seamless drag-and-drop actions for CSV and Excel files up to 10MB.*
+
+### 4. Upload Result / Dataset Profiling Page
+![Metadata Profiling Summary](docs/screenshots/dataset-overview%201.png)
+*An immediate post-upload overview showing row counts, column counts, file size, and null rate statistics.*
+
+### 5. Dataset Overview - Main Profiles
+![Attribute Profiling](docs/screenshots/dataset-overview%202.png)
+*Detailed visual statistics showing value distributions and data histograms for each uploaded attribute.*
+
+### 6. Dataset Overview - Charts and Records Preview
+![Inferred Schema and Preview](docs/screenshots/dataset-overview.png)
+*The active dataset preview workspace displaying the inferred column schemas, detected data types, and a preview table of the raw records.*
+
+### 7. Data Quality Audit
+![Data Quality Audit Tab](docs/screenshots/data-quality.png)
+*An explainable data quality scorecard from 0-100 detailing duplicate entries, missing elements, outliers, and automated cleanup advice.*
+
+### 8. Smart Visualizations
+![Smart Visualization Tool](docs/screenshots/smart-visualizations.png)
+*An automated visualization builder recommending customized ECharts based on columns type cardinality with manual tweak options.*
+
+### 9. Ask Your Data
+![Natural Language AI Chat](docs/screenshots/ask-your-data.png)
+*The natural language query engine where users can type analytical questions to instantly compile chart configurations and factual summaries.*
+
+### 10. Interactive Dashboard
+![Interactive Dashboard View](docs/screenshots/interactive-dashboard.png)
+*A persistent dashboard layout consolidating pinned widgets (bar, line, scatter charts) with global filters and responsive arrangements.*
+
+### 11. Statistical Narrative Insights
+![Statistical Insights narrative](docs/screenshots/statistical-insights.png)
+*An automated analytical narrative reporting correlation matrix heatmaps, skewness takeaways, and statistical trends.*
 
 ---
 
 ## ⚠️ Known Limitations
 
-* **SQLite Concurrency**: Uses SQLite for simplicity in demonstrations. High-concurrency operations might cause table lockouts. For production staging, configure PostgreSQL by adapting the `DATABASE_URL` settings.
-* **Query Limit Caps**: Dataset query results are capped at 1000 rows when aggregation is set to `none` to safeguard frontend memory against heavy datasets.
+* **SQLite Concurrency**: The system defaults to SQLite for simple local setups. Concurrency writes might trigger SQLite database lock exceptions. *Recommendation: Configure a dedicated PostgreSQL instance using the `DATABASE_URL` env variable for staging/production.*
+* **Query Plot Cap limits**: Datapoints are capped at `1000` rows in query execution when aggregation is set to `none` to preserve client-side graphics performance.
+
+---
+
+## 🔮 Future Improvements
+
+* **PostgreSQL Integration**: Complete migrations config for standard enterprise databases.
+* **S3/Cloud Ingestion**: Add abstract cloud storage modules to handle file uploads rather than local directory writes.
+* **Docker Containerization**: Add a `Dockerfile` and `docker-compose.yml` to spin up client and backend servers in single-command environments.
+* **CI/CD Integration**: Configure GitHub Actions to automatically run backend tests and frontend builds on pull requests.
+
