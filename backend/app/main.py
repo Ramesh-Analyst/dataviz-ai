@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import text
 from backend.app.database.session import Base, engine, get_db
 from backend.app.api.routes import datasets, auth, profiling, visualizations, dashboards, insights
+from backend.app.core.config import settings
 
 # Automatically compile tables inside local SQLite database (or active PostgreSQL)
 Base.metadata.create_all(bind=engine)
@@ -17,7 +18,7 @@ app = FastAPI(
 # CORS Policy configuration to allow cross-origin React frontend inquiries
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=settings.cors_origins_list,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

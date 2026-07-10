@@ -11,6 +11,15 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 1440
     UPLOAD_DIR: str = "uploads"
     MAX_UPLOAD_SIZE_MB: int = 10
+    CORS_ORIGINS: str = Field(default="")
+
+    @property
+    def cors_origins_list(self) -> list[str]:
+        default_origins = ["http://localhost:5173", "http://127.0.0.1:5173"]
+        if not self.CORS_ORIGINS:
+            return default_origins
+        origins = [o.strip() for o in self.CORS_ORIGINS.split(",") if o.strip()]
+        return origins if origins else default_origins
 
     model_config = SettingsConfigDict(
         # Load env file from backend root (3 levels up from core/config.py)
