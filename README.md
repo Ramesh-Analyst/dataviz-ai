@@ -6,6 +6,12 @@ The platform combines a React-based analytical interface with a FastAPI backend,
 
 ---
 
+## 🌐 Live Demo
+
+Try the deployed application: https://dataviz-ai-1.onrender.com
+
+---
+
 ## ✨ Key Features
 
 * **Spreadsheet Ingestion**: Supports CSV, XLSX, and XLS file formats with automated file type and structure validation.
